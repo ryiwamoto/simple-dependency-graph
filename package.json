@@ -1,0 +1,17 @@
+{
+  "name": "simple-dependency-graph",
+  "version": "0.0.1",
+  "description": "Simple dependency graph that allows circular dependency.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jasmin-node test"
+  },
+  "author": "ryiwamoto <konnpekigan@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^2.4.1"
+  }
+}
