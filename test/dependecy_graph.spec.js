@@ -15,13 +15,13 @@ describe("DependencyGraph", function () {
     });
   });
 
-  describe("#getDependantsOf", function(){
+  describe("#getDependentsOf", function(){
     it("can track one-to-one dependency", function () {
       var graph = new DependencyGraph();
 
       graph.addDependency('b', 'a');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants).toEqual(['b']);
     });
 
@@ -31,7 +31,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('b', 'a');
       graph.addDependency('c', 'a');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants.length).toBe(2);
       expect(dependants).toContain('b');
       expect(dependants).toContain('c');
@@ -43,7 +43,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('b', 'a');
       graph.addDependency('c', 'a');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants.length).toBe(2);
       expect(dependants).toContain('b');
       expect(dependants).toContain('c');
@@ -56,7 +56,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('c', 'a');
       graph.addDependency('c', 'b');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants.length).toBe(2);
       expect(dependants).toContain('b');
       expect(dependants).toContain('c');
@@ -68,7 +68,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('b', 'a');
       graph.addDependency('a', 'b');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants).toEqual(['b']);
     });
 
@@ -77,7 +77,7 @@ describe("DependencyGraph", function () {
 
       graph.addDependency('a', 'a');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants).toEqual([]);
     });
 
@@ -89,7 +89,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('d', 'c');
       graph.addDependency('a', 'd');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants.length).toBe(3);
       expect(dependants).toContain('b');
       expect(dependants).toContain('c');
@@ -105,7 +105,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('b', 'a');
       graph.addDependency('a', 'b');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants).toContain('b');
       expect(dependants).toContain('c');
       expect(dependants.length).toBe(2);
@@ -123,7 +123,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('c', 'b');
       graph.addDependency('b', 'c');
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants).toContain('b');
       expect(dependants).toContain('c');
       expect(dependants.length).toBe(2);
@@ -144,7 +144,7 @@ describe("DependencyGraph", function () {
       graph.addDependency('f', 'e');
       graph.addDependency('c', 'f');
 
-      var dependants = graph.getDependantsOf('b');
+      var dependants = graph.getDependentsOf('b');
       expect(dependants).toContain('a');
       expect(dependants).toContain('c');
       expect(dependants).toContain('d');
@@ -160,7 +160,7 @@ describe("DependencyGraph", function () {
       graph.addDependency("b", "a");
       graph.removeDependency("b", "a");
 
-      var dependants = graph.getDependantsOf('a');
+      var dependants = graph.getDependentsOf('a');
       expect(dependants.length).toBe(0);
     });
 
@@ -192,10 +192,10 @@ describe("DependencyGraph", function () {
 
       graph.removeNode("a");
 
-      var dependantsOfA = graph.getDependantsOf('a');
+      var dependantsOfA = graph.getDependentsOf('a');
       expect(dependantsOfA.length).toBe(0);
 
-      var dependantsOfC = graph.getDependantsOf('c');
+      var dependantsOfC = graph.getDependentsOf('c');
       expect(dependantsOfC.length).toBe(0);
     });
 

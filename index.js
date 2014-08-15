@@ -60,7 +60,7 @@ var DependencyGraph = (function () {
     }
   };
 
-  DependencyGraph.prototype.getDependantsOf = function (dependOn) {
+  DependencyGraph.prototype.getDependentsOf = function (dependOn) {
     return _.without(this._trackDependencies(this.incoming, dependOn, []), dependOn);
   };
 
