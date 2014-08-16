@@ -18,5 +18,5 @@ expect(dependants).toEqual(['b']);
 - addDependency(from, to)
 - removeDependency(from, to)
 - hasDependency(from, to)
-- getDependantsOf(id)
+- getDependentsOf(id)
 - getDependenciesOf(id)
