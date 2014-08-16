@@ -8,8 +8,8 @@ var graph = new DependencyGraph();
 graph.addDependency('b', 'a');
 graph.addDependency('a', 'b');
 
-var dependants = graph.getDependantsOf('a');
-expect(dependants).toEqual(['b']);
+var dependents = graph.getDependentsOf('a');
+expect(dependents).toEqual(['b']);
 ```
 
 ## API
